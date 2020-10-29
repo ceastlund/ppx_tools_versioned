@@ -69,7 +69,7 @@ module Main : sig end = struct
 
   let prefix ty s =
     let open Longident in
-    match parse ty with
+    match parse ty [@alert "-deprecated"] with
     | Ldot(m, _) -> String.concat "." (Longident.flatten m) ^ "." ^ s
     | _ -> s
 
